@@ -3,6 +3,7 @@ using API.Helpers;
 using API.Middleware;
 using AutoMapper;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,7 @@ namespace API
 
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContext>(x => x.UseSqlServer(_configuration.GetConnectionString("IdentityConnection")));
 
             services.AddSingleton<IConnectionMultiplexer>(c =>
             {
@@ -37,6 +39,7 @@ namespace API
             });
 
             services.AddApplicationServices(); //z Extensions
+            services.AddIdentityServices(_configuration);
             services.AddSwaggerDocumentation();
 
             services.AddCors(opt =>
@@ -58,8 +61,7 @@ namespace API
             // }
             //Zamiast powyższego:
             app.UseMiddleware<ExceptionMiddleware>();
-
-            app.UseStatusCodePagesWithReExecute("errors/{0}");
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 
@@ -69,6 +71,7 @@ namespace API
 
             app.UseCors("CorsPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseSwaggerDocumentation();
