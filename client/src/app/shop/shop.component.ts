@@ -1,9 +1,9 @@
-import { ShopParams } from './../models/shopParams';
+import { ShopParams } from './../shared/models/shopParams';
 import { ShopService } from './shop.service';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { IProduct } from '../models/product';
-import { IBrand } from '../models/brand';
-import { IType } from '../models/productType';
+import { IProduct } from '../shared/models/product';
+import { IBrand } from '../shared/models/brand';
+import { IType } from '../shared/models/productType';
 
 @Component({
   selector: 'app-shop',
@@ -23,7 +23,7 @@ export class ShopComponent implements OnInit {
     { name: 'Price: High to Low', value: 'priceDesc' },
   ];
 
-  constructor(private shopService: ShopService) {}
+  constructor(private shopService: ShopService) { }
 
   ngOnInit(): void {
     this.getProducts();

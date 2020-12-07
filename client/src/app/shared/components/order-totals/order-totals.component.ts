@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BasketService } from 'src/app/basket/basket.service';
-import { IBasketTotals } from 'src/app/models/basket';
+import { IBasketTotals } from 'src/app/shared/models/basket';
 
 @Component({
   selector: 'app-order-totals',

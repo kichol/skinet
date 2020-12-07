@@ -1,11 +1,11 @@
-import { ShopParams } from './../models/shopParams';
-import { IType } from './../models/productType';
-import { IBrand } from './../models/brand';
+import { ShopParams } from './../shared/models/shopParams';
+import { IType } from './../shared/models/productType';
+import { IBrand } from './../shared/models/brand';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPagination } from '../models/pagination';
+import { IPagination } from '../shared/models/pagination';
 import { map } from 'rxjs/operators';
-import { IProduct } from '../models/product';
+import { IProduct } from '../shared/models/product';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ import { IProduct } from '../models/product';
 export class ShopService {
   baseUrl = 'https://localhost:5001/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getProducts(shopParams: ShopParams) {
     let params = new HttpParams();
     if (shopParams.brandId !== 0) {

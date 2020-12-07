@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BasketService } from 'src/app/basket/basket.service';
-import { IProduct } from 'src/app/models/product';
+import { IProduct } from 'src/app/shared/models/product';
 
 @Component({
   selector: 'app-product-item',

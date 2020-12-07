@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBasket, IBasketitem } from '../models/basket';
+import { IBasket, IBasketitem } from '../shared/models/basket';
 import { BasketService } from './basket.service';
 
 @Component({

@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Basket, IBasket, IBasketitem, IBasketTotals } from '../models/basket';
-import { IProduct } from '../models/product';
+import { Basket, IBasket, IBasketitem, IBasketTotals } from '../shared/models/basket';
+import { IProduct } from '../shared/models/product';
 
 @Injectable({
   providedIn: 'root'
